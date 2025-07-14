@@ -19,7 +19,7 @@
       <resource>
         <directory>dataclasses</directory>
         <excludes>
-          <exclude>*</exclude>
+          <exclude>**/*</exclude>
         </excludes>
       </resource>
     </resources>
