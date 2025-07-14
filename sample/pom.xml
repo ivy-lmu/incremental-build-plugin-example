@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ivyteam.incremental.build</groupId>
-    <artifactId>sample</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>iar</packaging>
+  <groupId>com.ivyteam.incremental.build</groupId>
+  <artifactId>sample</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>iar</packaging>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+  </properties>
 
-    <build>
-        <plugins>
-          <plugin>
-            <groupId>com.ivyteam.incremental.build</groupId>
-            <artifactId>build-plugin</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <extensions>true</extensions>
-          </plugin>
-        </plugins>
-      </build>
+  <build>
+    <resources>
+      <resource>
+        <directory>dataclasses</directory>
+        <excludes>
+          <exclude>*</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <?m2e execute onConfiguration,onIncremental?>
+        <groupId>com.ivyteam.incremental.build</groupId>
+        <artifactId>build-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <extensions>true</extensions>
+      </plugin>
 
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src</source>
+                <source>src_dataClasses</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
