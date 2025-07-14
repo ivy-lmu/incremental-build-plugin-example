@@ -23,9 +23,10 @@
         org.apache.maven.artifact.handler.DefaultArtifactHandler
       </implementation>
       <configuration>
-        <type>iar</type>
         <addedToClasspath>true</addedToClasspath>
-        <language>java</language>
+        <type>iar</type>
+        <packaging>iar</packaging>
+        <extension>iar</extension>
       </configuration>
     </component>
   </components>
