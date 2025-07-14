@@ -24,4 +24,4 @@ You can run this project using codespaces.
 - press "Realod All Maven Projects" button under maven view
 - edit `dataclasses/NotSrcDirExample.ivyClass`, verify that `src_dataClasses/NotSrcDirExample.java`gets immediately created
 - verify that `target/classes/NotSrcDirExample.class` gets created
-- in case the Java Projects are corrup, the command `Java: Clean Java Language Server Workspace` can help
+- in case the Java projects are corrupt, the command `Java: Clean Java Language Server Workspace` can help
